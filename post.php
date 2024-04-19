@@ -6,7 +6,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="blog/img/favicon.ico">
-<title>Mediumish - A Medium style template by WowThemes.net</title>
+<title>Blogs</title>
 <!-- Bootstrap core CSS -->
 <link href="blog/css/bootstrap.min.css" rel="stylesheet">
 <!-- Fonts -->
