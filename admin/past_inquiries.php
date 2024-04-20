@@ -41,7 +41,7 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo mr-5" href="dashboard.php"><img src="../assets/img/raceeducare.png" class="mr-2"style="height:65px;" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="dashboard.php"><img src="../assets/img/raceeducare.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="dashboard.php="><img src="../assets/img/raceeducare.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -57,7 +57,7 @@
               <h3 toUpperCase()><?php echo ucfirst($name) ?></h3>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-             
+              
               <a href="logout.php" class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
@@ -153,54 +153,63 @@
                     <tr>
 
                         <th>Id</th>
-                        <th>Title</th>
-                        <th>Blog image</th>
-                        <th>Created at</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Education Level</th>                        
+                        <th>Preferred Destination</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                if(isset($_GET['page'])){
-                  $page = $_GET['page'];
-                  }
-                  else{
-                      $page = 1;
-                  }
-                  
-                  $offset = ($page - 1) * 5;
-                    
-                    // create a sql query to get all data
-                    $sql = "SELECT * FROM blogs LIMIT $offset, 5";
-                    $sql2 = "SELECT * FROM blogs";
-
-                    $res = mysqli_query($conn, $sql);
-                    $res2 = mysqli_query($conn, $sql2);
-
-                    $count = mysqli_num_rows($res2);
-                    $rowsPerPage = 5;
-                    $total = ceil($count / $rowsPerPage);
-                    
-                    $sn=1;
-                    if($count>0)
-                    {
+                    if(isset($_GET['page'])){
+                      $page = $_GET['page'];
+                      }
+                      else{
+                          $page = 1;
+                      }
                       
+                      $offset = ($page - 1) * 10;
+                        
+                        // create a sql query to get all data
+                        $sql = "SELECT * FROM inquiry WHERE status= 'completed' LIMIT $offset, 10";
+                        $sql2 = "SELECT * FROM inquiry WHERE status= 'completed'";
+    
+                        $res = mysqli_query($conn, $sql);
+                        $res2 = mysqli_query($conn, $sql2);
+    
+                        $count = mysqli_num_rows($res2);
+                        $rowsPerPage = 10; // You've already limited the query to 2 rows per page
+                        $total = ceil($count / $rowsPerPage);
+                        
+                        $sn=1;
+  
+                        if($count>0)
+                    {
                         while($row=mysqli_fetch_assoc($res))
                         {
                             $id = $row['id'];
-                            $title = $row['title'];
-                            $blogImage = $row['blogImage'];
-                            $blogContent = $row['blogContent'];
-                            $Created_at = $row['created_at'];
+                            $name = $row['name'];
+                            $phone = $row['phone'];
+                            $email = $row['email'];
+                            $education_level = $row['education_level'];
+                            $age = $row['age'];
+                            $preferred_destination = $row['preferred_destination'];
+
                             ?>
                     <tr>
                         <td><?php echo $sn++; ?></td>
-                        <td><?php echo $title; ?></td>
-                        <td><img src="<?php echo SITEURL; ?>admin/blog/img/<?php echo $blogImage ?>" alt="" style="border-radius: 5px; width: 100px;;height: auto;"></td>
-                        <td><?php echo $Created_at; ?></td>
+                        <td><?php echo ucfirst($name); ?></td>
+                        <td><?php echo $phone; ?></td>
+                        <td><?php echo $email; ?></td>
+                        <td><?php echo $age; ?></td>
+                        <td><?php echo ucfirst($education_level); ?></td>
+                        <td><?php echo ucfirst($preferred_destination); ?></td>
                         <td>
-                            <a href="<?php echo SITEURL; ?>admin/edit_blog.php?id=<?php echo $id; ?>"class="btn btn-info">Edit</a>
-                            <a href="<?php echo SITEURL; ?>admin/deleteBlog.php?id=<?php echo $id; ?>&blogImage=<?php echo $blogImage ?>" class="btn btn-danger">Delete</a>
+                           
+                            <a href="<?php echo SITEURL; ?>admin/inq_delete.php?id=<?php echo $id; ?>" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     <?php
@@ -215,8 +224,7 @@
                 </tbody>
             </table>
           </div>
-          
-        <nav aria-label="Page navigation example">
+          <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
             <li class="page-item ">
               <a class="page-link" href="<?php if($page <=1){echo '#';}else{echo "?page=".$page -1;} ?>" tabindex="-1">Previous</a>
@@ -260,8 +268,8 @@
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 Company ko naam All rights reserved.</span>
+            
           </div>
         </footer>
         <!-- partial -->

@@ -5,10 +5,57 @@
 
   $userid= $index_user_data['user_id'];
   $name=$index_user_data['username'];
+  $id = $_GET['id'];
+
 
   if($index_user_data == false){
       header("Location: ../index.php");
   }
+
+  //   getting data from database
+  $sql = "SELECT * FROM users WHERE id=$id";
+
+  $res = mysqli_query($conn, $sql);
+
+  $count = mysqli_num_rows($res);
+  $row=mysqli_fetch_assoc($res);
+
+  $id = $row['id'];
+  $firstname = $row['first_name'];
+  $lastname = $row['last_name'];
+  $user_type = $row['user_type'];
+  $username = $row['username'];
+  $userid = $row['user_id'];
+  $password = $row['password'];
+
+  if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        // something was posted
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $user_type = $_POST['user_type'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        if(!empty($firstname) && !empty($lastname) && !empty($user_type) && !empty($username) && !empty($password)){
+
+            $user_id = random_num(9);
+            $query = "UPDATE users SET 
+            first_name = '". $firstname ."',
+            last_name = '". $lastname ."',
+            user_type = '". $user_type ."',
+            username = '". $username ."',
+            password = '". $password ."'
+            WHERE id='". $id ."'";
+
+            mysqli_query($conn,$query);
+
+            header("Location: manage_admin.php");
+        }
+        else{
+            echo "enter valid information!";
+        }
+    }
    
 ?>
 <!DOCTYPE html>
@@ -34,6 +81,13 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../assets/img/raceeducare.png" />
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet" />
+  <style>
+    .ck-editor__editable[role="textbox"] {
+    /* Editing area */
+    min-height: 200px;
+}
+  </style>
 </head>
 <body>
   <div class="container-scroller">
@@ -57,7 +111,7 @@
               <h3 toUpperCase()><?php echo ucfirst($name) ?></h3>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-             
+              
               <a href="logout.php" class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
@@ -147,123 +201,42 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Blog image</th>
-                        <th>Created at</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                if(isset($_GET['page'])){
-                  $page = $_GET['page'];
-                  }
-                  else{
-                      $page = 1;
-                  }
-                  
-                  $offset = ($page - 1) * 5;
-                    
-                    // create a sql query to get all data
-                    $sql = "SELECT * FROM blogs LIMIT $offset, 5";
-                    $sql2 = "SELECT * FROM blogs";
-
-                    $res = mysqli_query($conn, $sql);
-                    $res2 = mysqli_query($conn, $sql2);
-
-                    $count = mysqli_num_rows($res2);
-                    $rowsPerPage = 5;
-                    $total = ceil($count / $rowsPerPage);
-                    
-                    $sn=1;
-                    if($count>0)
-                    {
-                      
-                        while($row=mysqli_fetch_assoc($res))
-                        {
-                            $id = $row['id'];
-                            $title = $row['title'];
-                            $blogImage = $row['blogImage'];
-                            $blogContent = $row['blogContent'];
-                            $Created_at = $row['created_at'];
-                            ?>
-                    <tr>
-                        <td><?php echo $sn++; ?></td>
-                        <td><?php echo $title; ?></td>
-                        <td><img src="<?php echo SITEURL; ?>admin/blog/img/<?php echo $blogImage ?>" alt="" style="border-radius: 5px; width: 100px;;height: auto;"></td>
-                        <td><?php echo $Created_at; ?></td>
-                        <td>
-                            <a href="<?php echo SITEURL; ?>admin/edit_blog.php?id=<?php echo $id; ?>"class="btn btn-info">Edit</a>
-                            <a href="<?php echo SITEURL; ?>admin/deleteBlog.php?id=<?php echo $id; ?>&blogImage=<?php echo $blogImage ?>" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <?php
-                        }
-                    }
-                    else
-                    {
-                        echo "ERROR";
-                    }
-
-                    ?>
-                </tbody>
-            </table>
-          </div>
-          
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item ">
-              <a class="page-link" href="<?php if($page <=1){echo '#';}else{echo "?page=".$page -1;} ?>" tabindex="-1">Previous</a>
-
-            </li>
+        <div class="blog-post">
+            <h2>Add Admin</h2>
             
-            <?php 
-                
-                
-                for($i = 1; $i <= $total; $i++){
+        </div>
 
-                    if($page==$i)
-                    {
-                        $active= "page_active";
-                    }
-                    else{
-                        $active="";
-                    }
+        <form action="" method="POST" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <input type="text" class="form-control"  placeholder="First name" name="firstname"value="<?php echo $firstname; ?>" required>
+            </div>
+            <div class="form-group col-md-6">
+            <input type="text"class="form-control" placeholder="Last name" name="lastname"value="<?php echo $lastname; ?>"required>
+            </div>
+        </div>
             
-                    // echo"<a href='?page=$i'><span class='$active'>". $i ."</span></a>";
-                    echo"<li class='page-item'><a class='page-link' href='?page=$i'class='$active'>". $i ."</a></li>";
-
-                }
-                
-                if($page!==$i)
-                {
-                 
-                }
+           
+            <select name="user_type" class="custom-select" >
+               <?php if($user_type == "admin"){
+                echo'<option value="admin" selected>Admin</option>';
+               }
+               else{
+                echo'<option value="editor" selected>editor</option>';
+               }
+                ?>
+                <option value="admin">Admin</option>
+                <option value="editor">Editor</option>
+            </select> <br> <br>
+            <input type="text" placeholder="username" name="username" value="<?php echo $username; ?>"required><br>
+            <input type="text" placeholder="password" name="password"value="<?php echo $password; ?>"required>
             
-            ?>
-            <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-            <li class="page-item">
-              <a class="page-link" href="<?php if($page >= $total){echo '#';}else{echo "?page=".$page +1;} ?>">Next</a>
-            </li>
-          </ul>
-        </nav>
+            <input type="submit"name="submit" value="Submit" class="subbtn">
+        </form>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-          </div>
-        </footer>
+        
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
@@ -293,7 +266,15 @@
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-  
+  <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+  <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+  </script>
+
 </body>
 
 </html>

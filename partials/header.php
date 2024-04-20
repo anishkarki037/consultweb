@@ -34,7 +34,7 @@
                     <div class="responsive-menu">
                         <div class="logo-wrapper">
                             <a href="index.php" class="logo">
-                                <img src="assets/img/Logos/logo-black.svg" alt="">
+                                <img src="assets/img/raceeducare.png" alt="" style="height: 100px;">
                             </a>
                         </div>
                         <button class="navbar-toggler navbar-bs-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#themeim_main_menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,18 +44,18 @@
                     <div class="collapse navbar-collapse" id="themeim_main_menu">
                         <ul class="navbar-nav">
                             <li class="menu-item-has-children">
-                                <a href="#0">Home</a>
+                                <a href="index.php">Home</a>
                                 
                             </li>
 
-                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="#aboutus">About Us</a></li>
 
                             <li class="menu-item-has-children">
                                 <a href="#">Study Abroad</a>
                                 <ul class="sub-menu">
-                                    <li><a href="Our-services.html">Study in USA</a></li>
-                                    <li><a href="services-details.html">Study in Ireland</a></li>
-                                    <li><a href="our-team.html">Currency Converter</a></li>
+                                    <li><a href="studyinusa.php">Study in USA</a></li>
+                                    <li><a href="studyinireland.php">Study in Ireland</a></li>
+                                    <li><a href="currencyconverter.php">Currency Converter</a></li>
                                 </ul>
                             </li>
 
@@ -64,7 +64,7 @@
                                 
                             </li>
 
-                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="contactus.php">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="nav-right-content">

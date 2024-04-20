@@ -26,8 +26,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="blog/img/favicon.ico">
-<title>Blogs</title>
+<link rel="icon" href="assets/img/raceeducare.png">
+<title>Race Educare: Posts</title>
 <!-- Bootstrap core CSS -->
 <link href="blog/css/bootstrap.min.css" rel="stylesheet">
 <!-- Fonts -->

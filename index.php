@@ -36,9 +36,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>website</title>
+    <title>Race educare</title>
     <!-- favicon -->
-    <link rel="icon" href="assets/img/favicon.png" sizes="20x20" type="image/png">
+    <link rel="icon" href="assets/img/raceeducare.png" sizes="20x20" type="image/png">
     <!-- animate -->
     <link rel="stylesheet" href="assets/css/animate.css">
     <!-- bootstrap -->
@@ -199,7 +199,7 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             About Section Area Start Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <section class="about-section-area section-top-space about-home-02">
+        <section class="about-section-area section-top-space about-home-02" id="aboutus">
             <div class="container custom-container-01">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -218,9 +218,8 @@
                             </h4>
                         </div>
                         <div class="about-content-wrap">
-                            <p>Ouya Education, which is based in Victoria, British Columbia, Canada, frequently deals with issues of employment (recruitment and retention) for temporary foreign workers (TFW), as well as temporary and permanent residency
-                                applications and other general immigration matters with Canadian federal departments (IRCC and CBSA).</p>
-                            <p>Education also provides educational consulting services for student- clients who want to study in Canada, and require help with the application process.</p>
+                            <p>At Race Educare, we offer a comprehensive range of services to students aiming for studying abroad, covering everything from college selection to visa assistance. Our experienced team ensures that you smoothly navigate the complexities of studying abroad. </p>
+                            <p>We specialize in creating personalized education paths aligned with your career goals, leveraging our strong connections with top universities in USA and Ireland.</p>
                             <span class="core">Core strength</span>
                         </div>
                         <div class="counter-section-inner style-a">
@@ -257,7 +256,7 @@
                             </div>
                         </div>
                         <div class="btn-wrap">
-                            <a href="#" class="btn-common fill-btn">Get Free Consultation</a>
+                            <a href="contactus.php" class="btn-common fill-btn">Get Free Consultation</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
@@ -397,80 +396,7 @@
             </div>
         </section>
 
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            News Section Area Start Here
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <section class="news-section-area margin-top-110">
-            <div class="container custom-container-01">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="theme-section-title desktop-center text-center">
-                            <span class="subtitle">EDUPLAN UPDATES</span>
-                            <h4 class="title">Eduplan Latest Blog</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-grid-item">
-                            <div class="thumbnail">
-                                <img src="assets/img/h-blog/01.png" alt="" class="border-radius-20">
-                            </div>
-                            <div class="content">
-                                <ul class="post-categories">
-                                    <li><img src="assets/img/icon/calander.png" alt="">19th Jan 2022</li>
-                                    <li>12 noon to 4 pm</li>
-                                </ul>
-                                <h4 class="title">Overseas Education Fair Amravati 2023</h4>
-                                <div class="btn-wrap">
-                                    <a href="#0" class="more-btn">Read More <i
-                                            class="fa-solid fa-angle-right icon"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-grid-item">
-                            <div class="thumbnail">
-                                <img src="assets/img/h-blog/02.png" alt="">
-                            </div>
-                            <div class="content">
-                                <ul class="post-categories">
-                                    <li><img src="assets/img/icon/calander.png" alt="">19th Jan 2022</li>
-                                    <li>12 noon to 4 pm</li>
-                                </ul>
-                                <h4 class="title">Overseas Education Fair Amravati 2023</h4>
-                                <div class="btn-wrap">
-                                    <a href="#0" class="more-btn">Read More <i
-                                            class="fa-solid fa-angle-right icon"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-grid-item">
-                            <div class="thumbnail">
-                                <img src="assets/img/h-blog/03.png" alt="">
-                            </div>
-                            <div class="content">
-                                <ul class="post-categories">
-                                    <li><img src="assets/img/icon/calander.png" alt="">19th Jan 2022</li>
-                                    <li>12 noon to 4 pm</li>
-                                </ul>
-                                <h4 class="title">Overseas Education Fair Amravati 2023</h4>
-                                <div class="btn-wrap">
-                                    <a href="#0" class="more-btn">Read More <i
-                                            class="fa-solid fa-angle-right icon"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            News Section Area End Here
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        
 
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Faq Section Area Start Here
@@ -486,7 +412,7 @@
                         <div class="faq-content">
                             <h6 class="subtitle">Still do you have any questions to know? <br> Feel free to ask our experts here.</h6>
                             <div class="btn-wrap">
-                                <a href="#0" class="btn-common flat-btn">ASK YOUR QUESTIONS</a>
+                                <a href="#inquiry" class="btn-common flat-btn">ASK YOUR QUESTIONS</a>
                             </div>
                         </div>
                     </div>
@@ -498,13 +424,13 @@
                                     <div class="card-header" id="headingOne">
                                         <h5 class="mb-0">
                                             <a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                1. How is get admission in abroad university?
+                                                1. How to get admission in abroad university?
                                             </a>
                                         </h5>
                                     </div>
                                     <div id="collapseOne" class="collapse" data-bs-parent="#accordionOne">
                                         <div class="card-body">
-                                            Norway, USA, UK, Germany & Italy is most safest country in the world for Bangladeshi students for higer study.
+                                            There are few basics steps Research, Apply Online, Prepare Documents and Wait for Acceptance.
                                         </div>
                                     </div>
                                 </div>
@@ -518,7 +444,7 @@
                                     </div>
                                     <div id="collapseTwo" class="collapse" data-bs-parent="#accordionOne">
                                         <div class="card-body">
-                                            Norway, USA, UK, Germany & Italy is most safest country in the world for Bangladeshi students for higer study.
+                                            Yes. We offer complete solutions for the students from applying to document preparetions.
                                         </div>
                                     </div>
                                 </div>
@@ -526,13 +452,13 @@
                                     <div class="card-header" id="headingThree">
                                         <h5 class="mb-0">
                                             <a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                3. Which country is safe and better for higher study?
+                                                3. Why study abroad?
                                             </a>
                                         </h5>
                                     </div>
                                     <div id="collapseThree" class="collapse show" data-bs-parent="#accordionOne">
                                         <div class="card-body">
-                                            Norway, USA, UK, Germany & Italy is most safest country in the world for Bangladeshi students for higer study.
+                                        Gain a high-quality education, experience new cultures, and expand future job prospects.
                                         </div>
                                     </div>
                                 </div>
@@ -540,13 +466,14 @@
                                     <div class="card-header" id="headingFour">
                                         <h5 class="mb-0">
                                             <a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                4. Which country offer PR after study getting job?
+                                                4. Entry requirements?
                                             </a>
                                         </h5>
                                     </div>
                                     <div id="collapseFour" class="collapse" data-bs-parent="#accordionOne">
                                         <div class="card-body">
-                                            Norway, USA, UK, Germany & Italy is most safest country in the world for Bangladeshi students for higer study.
+                                        Vary by country and program; check language proficiency and documents needed.
+
                                         </div>
                                     </div>
                                 </div>
@@ -560,7 +487,7 @@
                                     </div>
                                     <div id="collapseFive" class="collapse" data-bs-parent="#accordionOne">
                                         <div class="card-body">
-                                            Norway, USA, UK, Germany & Italy is most safest country in the world for Bangladeshi students for higer study.
+                                        Certainly! Yes, you can still get scholarships even with a low cGPA. Scholarship selection committees consider other factors beyond GPA.
                                         </div>
                                     </div>
                                 </div>
@@ -568,13 +495,13 @@
                                     <div class="card-header" id="headingSix">
                                         <h5 class="mb-0">
                                             <a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                                6. Do you allow accomadation for students in abroad?
+                                                6. Do I need a second language?
                                             </a>
                                         </h5>
                                     </div>
                                     <div id="collapseSix" class="collapse" data-bs-parent="#accordionOne">
                                         <div class="card-body">
-                                            Norway, USA, UK, Germany & Italy is most safest country in the world for Bangladeshi students for higer study.
+                                        Not always; many programs offer courses in English.
                                         </div>
                                     </div>
                                 </div>

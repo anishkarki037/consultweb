@@ -35,10 +35,10 @@
                                 <div class="footer-widget widget widget_nav_menu">
                                     <h4 class="widget-headline">More</h4>
                                     <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Currency Converter</a></li>
+                                        <li><a href="index.php#aboutus">About Us</a></li>
+                                        <li><a href="contactus.php">Contact Us</a></li>
+                                        <li><a href="blog.php">Blog</a></li>
+                                        <li><a href="currencyconcerter.php">Currency Converter</a></li>
                                     </ul>
                                 </div>
                             </div>

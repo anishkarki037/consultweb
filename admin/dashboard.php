@@ -8,22 +8,46 @@
             <div class="block">
               Administrative Users 
               <br><br>
-              <p>XXX</p>
+              <?php
+                    $sql = "SELECT * FROM users";
+                    $res = mysqli_query($conn, $sql);
+                    $count = mysqli_num_rows($res);
+                
+                ?>
+              <p><?php echo $count;?></p>
             </div>
             <div class="block">
               Blog counts
               <br><br>
-              <p>XXX</p>
+              <?php
+                    $sql = "SELECT * FROM blogs";
+                    $res = mysqli_query($conn, $sql);
+                    $count = mysqli_num_rows($res);
+                
+                ?>
+              <p><?php echo $count;?></p>
             </div>
             <div class="block">
               Inquires
               <br><br>
-              <p>XXX</p>
+              <?php
+                    $sql = "SELECT * FROM inquiry WHERE status ='processing'";
+                    $res = mysqli_query($conn, $sql);
+                    $count = mysqli_num_rows($res);
+                
+                ?>
+              <p><?php echo $count;?></p>
             </div>
             <div class="block">
               Responded Inquiries
               <br><br>
-              <p>XXX</p>
+              <?php
+                    $sql = "SELECT * FROM inquiry WHERE status ='completed'";
+                    $res = mysqli_query($conn, $sql);
+                    $count = mysqli_num_rows($res);
+                
+                ?>
+              <p><?php echo $count;?></p>
             </div>
           </div>
         </div>
