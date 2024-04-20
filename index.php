@@ -1,3 +1,33 @@
+<?php 
+  include('config/constants.php');
+  include('config/functions.php');
+ 
+  if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        // something was posted
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $education_level = $_POST['education_level'];
+        $age = $_POST['age'];
+        $preferred_destination = $_POST['preferred_destination'];
+        if(!empty($name) && !empty($phone) && !empty($email) && !empty($education_level)&& !empty($age)&& !empty($preferred_destination)){
+
+            
+            $query = "INSERT INTO inquiry(name,phone,email,education_level,age,preferred_destination) VALUES ('$name','$phone','$email','$education_level','$age','$preferred_destination')";
+
+            mysqli_query($conn,$query);
+
+            header("Location: submitted.php");
+        }
+        else{
+            echo "enter valid information!";
+        }
+    }
+   
+?>
+       
+        
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +80,7 @@
                                 
                                 <div class="header-btn">
                                     <div class="btn-wrap">
-                                        <a href="#0" class="btn-common flat-btn btn-active">apply now</a>
+                                        <a href="#inquiry" class="btn-common flat-btn btn-active">apply now</a>
                                     </div>
                                     
                                 </div>
@@ -157,7 +187,7 @@
                         
                     </div>
                     <div class="btn-wrap desktop-center margin-top-40 text-center">
-                        <a href="contact.html" class="btn-common fill-btn style-01">Apply Now</a>
+                        <a href="#inquiry" class="btn-common fill-btn style-01">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -294,6 +324,78 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Steps Section Area End Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+        <!-- inquirey section -->
+        <section class="faq-section-area margin-top-90" id="inquiry">
+            <div class="container custom-container-01">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="theme-section-title">
+                            <span class="subtitle">Get In Touch</span>
+                            <h4 class="title">Please drop your Inquiry here.</h4>
+                        </div>
+                        <div class="faq-content">
+                            <h6 class="subtitle">To start consultation and admission, kindly fill up the form , one of our advisers will contact you via email in less than 24 hours</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="accordion-wrapper">
+                            <!-- accordion wrapper -->
+                            <div id="accordionOne">
+            
+                               
+                                    <form action="" method="post">
+                                        <div class="form-row">
+                                    
+                                            <div class="form-group card">
+                                                <input type="text" placeholder="Full Name"class="form-control form-control-lg" id="colFormLabelLg"name="name" required> 
+                                            </div>
+                                            
+                                            <div class="form-group card">
+                                                <input type="text" placeholder="Mobile Number"class="form-control form-control-lg" id="colFormLabelLg"name="phone" required> 
+                                            </div>
+                                            <div class="form-group card">
+                                                <input type="text" placeholder="Email Address"class="form-control form-control-lg" id="colFormLabelLg"name="email" required> 
+                                            </div><br>
+                                            <h5 class="mb-0">
+                                                Education Level
+                                        </h5>
+                                            <div class="form-group card">
+                                            <select name="education_level" id="edulev"class="custom-select" id="colFormLabelLg" required >
+                                                <option selected>Education Level</option>
+                                                <option value="+2">+2</option>
+                                                <option value="bachelors">Bachelor</option>
+                                                <option value="master">Master</option>
+                                                        
+                                            <select>
+                                            </div>
+                                            
+                                            <div class="form-group card">
+                                                <input type="text" placeholder="Age"class="form-control form-control-lg" id="colFormLabelLg"name="age" required> 
+                                            </div><br>
+                                            <h5 class="mb-0">
+                                                Preferred Destination
+                                                </h5>
+                                            <div class="form-group card">
+                                                
+                                                <select name="preferred_destination" id="predes"class="custom-select" id="inputGroupSelect02" required>
+                                                    <option selected>Preferred Destination</option>
+                                                    <option value="USA">Study in USA</option>
+                                                    <option value="Ireland">Study in Ireland</option>                                                         
+                                                            
+                                                </select>
+                                            </div>
+                                            <input type="submit" name="submit"class="btn btn-primary">
+                                        </div>
+                                        
+                                    </form>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             News Section Area Start Here

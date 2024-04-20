@@ -74,7 +74,7 @@
                             </ul>
                         </div>
                         <div class="btn-wrap">
-                            <a href="#" class="btn-common nav-btn">Inquire Now</a>
+                            <a href="#inquiry" class="btn-common nav-btn">Inquire Now</a>
                         </div>
                     </div>
                 </div>

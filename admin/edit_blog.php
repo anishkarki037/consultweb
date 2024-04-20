@@ -5,6 +5,22 @@
 
   $userid= $index_user_data['user_id'];
   $name=$index_user_data['username'];
+  $id = $_GET['id'];
+
+//   getting data from DB
+    $sql = "SELECT * FROM blogs WHERE id=$id";
+
+    $res = mysqli_query($conn, $sql);
+
+    $count = mysqli_num_rows($res);
+    $row=mysqli_fetch_assoc($res);
+
+    $id = $row['id'];
+    $title = $row['title'];
+    $author = $row['author'];
+    $blogImage = $row['blogImage'];
+    $blogContent = $row['blogContent'];
+    $Created_at = $row['created_at'];
 
   if($index_user_data == false){
       header("Location: ../index.php");
@@ -24,16 +40,16 @@
         // for image
         if(isset($_FILES['blogImage']['name']))
         {
-            $blogImage = $_FILES['blogImage']['name'];
+            $newblogImage = $_FILES['blogImage']['name'];
 
-            if($blogImage!="")
+            if($newblogImage!="")
             {
                 // rename image
                 // get extension of selected image
-                $ext = end(explode('.', $blogImage));
+                $ext = end(explode('.', $newblogImage));
 
                 // create new name for image
-                $blogImage = "blog-".rand(00000,99999).".".$ext; 
+                $newblogImage = "blog-".rand(00000,99999).".".$ext; 
 
                 // upload image
                 // get src path and destination path
@@ -42,7 +58,7 @@
                 $src=$_FILES['blogImage']['tmp_name'];
 
                 // destination path for the image to be uploaded
-                $dst = "blog/img/".$blogImage;
+                $dst = "blog/img/".$newblogImage;
                 
                 // finally upload the food image
                 $upload = move_uploaded_file($src, $dst);
@@ -59,12 +75,18 @@
             }
         }
         else{
-            $blogImage = ""; //deafult value
+            $newblogImage1 = "($blogImage"; //deafult value
         }
-        if(!empty($title) && !empty($author) && !empty($blogImage) && !empty($blogContent)){
+        if(!empty($title) && !empty($author) && !empty($newblogImage) && !empty($blogContent)){
 
             
-            $query = "INSERT INTO blogs(title,author,blogImage,blogContent) VALUES ('$title','$author','$blogImage','$blogContent')";
+            $query = "UPDATE blogs SET
+            title = '". $title ."',
+            blogImage = '". $newblogImage ."',
+            blogContent = '". $blogContent ."',
+            author = '". $author ."'
+            WHERE id='". $id ."'
+            ";
 
             mysqli_query($conn,$query);
 
@@ -99,13 +121,6 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet" />
-  <style>
-    .ck-editor__editable[role="textbox"] {
-    /* Editing area */
-    min-height: 200px;
-}
-  </style>
 </head>
 <body>
   <div class="container-scroller">
@@ -267,28 +282,33 @@
               <span class="menu-title"><Inp>Inquiries</Inp></span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="past_inquiries.php">
+              <i class="icon-archive menu-icon"></i>
+              <span class="menu-title">Past Inquiries</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
         <div class="blog-post">
-            <h2>Add Blog</h2>
+            <h2>Edit Blog</h2>
             
         </div>
 
         <form action="" method="POST" enctype="multipart/form-data">
-            <input type="text" placeholder="Title" name="title" required>
-            <input type="text" placeholder="Author" name="author"required><br>
-            <label for="file">Select a image</label>
-            <input type="file" name="blogImage" class="inputfile"required>
-            <div id="content">
-              <textarea id="editor" placeholder="Write your blog post here..." rows="8" name="blogContent"></textarea>
-            </div>
-
+            <input type="text" placeholder="Title" name="title" value="<?php echo $title; ?>" required>
+            <input type="text" placeholder="Author" name="author"value="<?php echo $author; ?>" required><br>
+            <label for="file"><h5>Current Image</h5></label> <br>
+            <img src="<?php echo SITEURL; ?>admin/blog/img/<?php echo $blogImage ?>" alt="" style="border-radius: 5px; width: 100px;;height: auto;">
+            <br><br>
+            <label for="file"><h5>Change Image</h5></label>
+            <input type="file" name="blogImage" class="inputfile" value="<?php echo SITEURL; ?>admin/blog/img/<?php echo $blogImage ?>">
             
-            
-            <input type="submit"name="submit" value="Publish" class="subbtn">
+            <textarea placeholder="Write your blog post here..." rows="8" name="blogContent"required><?php echo $blogContent ?></textarea>
+            <input type="submit"name="submit" value="Publish" onclick="showPreview()" class="subbtn">
         </form>
         </div>
         <!-- content-wrapper ends -->
@@ -323,15 +343,7 @@
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-  <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
-  <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-  </script>
-
+  
 </body>
 
 </html>

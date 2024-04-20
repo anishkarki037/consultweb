@@ -12888,3 +12888,7 @@ ul.blocks-gallery-grid li:before {
     background-color: var(--main-color-one);
     color: #fff;
 }
+
+.form-group{
+    margin-bottom: 10px;
+}

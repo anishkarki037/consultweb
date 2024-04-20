@@ -9,71 +9,6 @@
   if($index_user_data == false){
       header("Location: ../index.php");
   }
-  if($_SERVER['REQUEST_METHOD'] == "POST")
-    {
-        // something was posted
-        $title = $_POST['title'];
-        $author = $_POST['author'];
-        $blogContent = $_POST['blogContent'];
-       
-        
-
-        
-
-
-        // for image
-        if(isset($_FILES['blogImage']['name']))
-        {
-            $blogImage = $_FILES['blogImage']['name'];
-
-            if($blogImage!="")
-            {
-                // rename image
-                // get extension of selected image
-                $ext = end(explode('.', $blogImage));
-
-                // create new name for image
-                $blogImage = "blog-".rand(00000,99999).".".$ext; 
-
-                // upload image
-                // get src path and destination path
-
-                // source path is current location of the image
-                $src=$_FILES['blogImage']['tmp_name'];
-
-                // destination path for the image to be uploaded
-                $dst = "blog/img/".$blogImage;
-                
-                // finally upload the food image
-                $upload = move_uploaded_file($src, $dst);
-
-                // checking
-                if($upload==false)
-                {
-
-                    header("Location: add_blog.php");
-                    $_SESSION['upload'] = '<script> alert("Failed to upload the image"); </script>';
-
-                    die();
-                }
-            }
-        }
-        else{
-            $blogImage = ""; //deafult value
-        }
-        if(!empty($title) && !empty($author) && !empty($blogImage) && !empty($blogContent)){
-
-            
-            $query = "INSERT INTO blogs(title,author,blogImage,blogContent) VALUES ('$title','$author','$blogImage','$blogContent')";
-
-            mysqli_query($conn,$query);
-
-            header("Location: manage_blog.php");
-        }
-        else{
-            echo "enter valid information!";
-        }
-    }
    
 ?>
 <!DOCTYPE html>
@@ -99,13 +34,6 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet" />
-  <style>
-    .ck-editor__editable[role="textbox"] {
-    /* Editing area */
-    min-height: 200px;
-}
-  </style>
 </head>
 <body>
   <div class="container-scroller">
@@ -132,54 +60,7 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="ti-info-alt mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Just now <?php echo $userid ?>
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="ti-settings mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Settings</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li>
+          
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
             <h3 toUpperCase()><?php echo ucfirst($name) ?></h3>
@@ -255,8 +136,8 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="add_admin.php"> Add Admins </a></li>
-                <li class="nav-item"> <a class="nav-link" href="manage_admin.php"> Manage Admins </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
               </ul>
             </div>
           </li>
@@ -267,33 +148,91 @@
               <span class="menu-title"><Inp>Inquiries</Inp></span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="past_inquiries.php">
+              <i class="icon-archive menu-icon"></i>
+              <span class="menu-title">Past Inquiries</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-        <div class="blog-post">
-            <h2>Add Blog</h2>
-            
-        </div>
+          <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
 
-        <form action="" method="POST" enctype="multipart/form-data">
-            <input type="text" placeholder="Title" name="title" required>
-            <input type="text" placeholder="Author" name="author"required><br>
-            <label for="file">Select a image</label>
-            <input type="file" name="blogImage" class="inputfile"required>
-            <div id="content">
-              <textarea id="editor" placeholder="Write your blog post here..." rows="8" name="blogContent"></textarea>
-            </div>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Education Level</th>                        
+                        <th>Preferred Destination</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    
+                    // create a sql query to get all data
+                    $sql = "SELECT * FROM inquiry WHERE status= 'completed'";
 
-            
-            
-            <input type="submit"name="submit" value="Publish" class="subbtn">
-        </form>
+                    $res = mysqli_query($conn, $sql);
+
+                    $count = mysqli_num_rows($res);
+                    $sn=1;
+
+                    if($count>0)
+                    {
+                        while($row=mysqli_fetch_assoc($res))
+                        {
+                            $id = $row['id'];
+                            $name = $row['name'];
+                            $phone = $row['phone'];
+                            $email = $row['email'];
+                            $education_level = $row['education_level'];
+                            $age = $row['age'];
+                            $preferred_destination = $row['preferred_destination'];
+
+                            ?>
+                    <tr>
+                        <td><?php echo $sn++; ?></td>
+                        <td><?php echo ucfirst($name); ?></td>
+                        <td><?php echo $phone; ?></td>
+                        <td><?php echo $email; ?></td>
+                        <td><?php echo $age; ?></td>
+                        <td><?php echo ucfirst($education_level); ?></td>
+                        <td><?php echo ucfirst($preferred_destination); ?></td>
+                        <td>
+                           
+                            <a href="<?php echo SITEURL; ?>admin/inq_delete.php?id=<?php echo $id; ?>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <?php
+                        }
+                    }
+                    else
+                    {
+                        echo "ERROR";
+                    }
+
+                    ?>
+                </tbody>
+            </table>
+          </div>
+
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 Company ko naam All rights reserved.</span>
+            
+          </div>
+        </footer>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
@@ -323,15 +262,7 @@
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-  <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
-  <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-  </script>
-
+  
 </body>
 
 </html>

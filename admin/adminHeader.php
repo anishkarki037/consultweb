@@ -9,71 +9,6 @@
   if($index_user_data == false){
       header("Location: ../index.php");
   }
-  if($_SERVER['REQUEST_METHOD'] == "POST")
-    {
-        // something was posted
-        $title = $_POST['title'];
-        $author = $_POST['author'];
-        $blogContent = $_POST['blogContent'];
-       
-        
-
-        
-
-
-        // for image
-        if(isset($_FILES['blogImage']['name']))
-        {
-            $blogImage = $_FILES['blogImage']['name'];
-
-            if($blogImage!="")
-            {
-                // rename image
-                // get extension of selected image
-                $ext = end(explode('.', $blogImage));
-
-                // create new name for image
-                $blogImage = "blog-".rand(00000,99999).".".$ext; 
-
-                // upload image
-                // get src path and destination path
-
-                // source path is current location of the image
-                $src=$_FILES['blogImage']['tmp_name'];
-
-                // destination path for the image to be uploaded
-                $dst = "blog/img/".$blogImage;
-                
-                // finally upload the food image
-                $upload = move_uploaded_file($src, $dst);
-
-                // checking
-                if($upload==false)
-                {
-
-                    header("Location: add_blog.php");
-                    $_SESSION['upload'] = '<script> alert("Failed to upload the image"); </script>';
-
-                    die();
-                }
-            }
-        }
-        else{
-            $blogImage = ""; //deafult value
-        }
-        if(!empty($title) && !empty($author) && !empty($blogImage) && !empty($blogContent)){
-
-            
-            $query = "INSERT INTO blogs(title,author,blogImage,blogContent) VALUES ('$title','$author','$blogImage','$blogContent')";
-
-            mysqli_query($conn,$query);
-
-            header("Location: manage_blog.php");
-        }
-        else{
-            echo "enter valid information!";
-        }
-    }
    
 ?>
 <!DOCTYPE html>
@@ -99,13 +34,6 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet" />
-  <style>
-    .ck-editor__editable[role="textbox"] {
-    /* Editing area */
-    min-height: 200px;
-}
-  </style>
 </head>
 <body>
   <div class="container-scroller">
@@ -182,7 +110,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-            <h3 toUpperCase()><?php echo ucfirst($name) ?></h3>
+              <h3 toUpperCase()><?php echo ucfirst($name) ?></h3>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -255,7 +183,7 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="add_admin.php"> Add Admins </a></li>
+                <li class="nav-item"> <a class="nav-link" href="add_admin.php"> Add Admins </a></li>
                 <li class="nav-item"> <a class="nav-link" href="manage_admin.php"> Manage Admins </a></li>
               </ul>
             </div>
@@ -267,72 +195,11 @@
               <span class="menu-title"><Inp>Inquiries</Inp></span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="past_inquiries.php">
+              <i class="icon-archive menu-icon"></i>
+              <span class="menu-title">Past Inquiries</span>
+            </a>
+          </li>
         </ul>
       </nav>
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-        <div class="blog-post">
-            <h2>Add Blog</h2>
-            
-        </div>
-
-        <form action="" method="POST" enctype="multipart/form-data">
-            <input type="text" placeholder="Title" name="title" required>
-            <input type="text" placeholder="Author" name="author"required><br>
-            <label for="file">Select a image</label>
-            <input type="file" name="blogImage" class="inputfile"required>
-            <div id="content">
-              <textarea id="editor" placeholder="Write your blog post here..." rows="8" name="blogContent"></textarea>
-            </div>
-
-            
-            
-            <input type="submit"name="submit" value="Publish" class="subbtn">
-        </form>
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-
-  <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="js/dataTables.select.min.js"></script>
-
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
-  <script src="js/Chart.roundedBarCharts.js"></script>
-  <!-- End custom js for this page-->
-  <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
-  <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-  </script>
-
-</body>
-
-</html>
-
