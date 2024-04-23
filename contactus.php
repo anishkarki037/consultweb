@@ -71,9 +71,9 @@
                     <div class="col-lg-6">
                         <div class="theme-section-title">
                             <span class="subtitle">Contact US</span>
-                            <h5 class="title"> <i class="fa fa-phone" style="font-size:36px"></i>  &nbsp; xxx xxxxxx</h5>
-                            <h5 class="title"> <i class="fa fa-envelope" style="font-size:36px"></i>  &nbsp; xxxxx@gmail.com</h5>
-                            <h5 class="title"> <i class="fa fa-map-marker" style="font-size:36px"></i>  &nbsp; Kathmandu</h5>
+                            <h5 class="title"> <i class="fa fa-phone" style="font-size:34px" style="color:--main-color-one;"></i>  &nbsp; +977-1-5444146</h5>
+                            <h5 class=""> <i class="fa fa-envelope" style="font-size:24px"></i>  &nbsp; infoo@race.edu.np</h5>
+                            <h5 class=""> <i class="fa fa-map-marker" style="font-size:24px"></i>  &nbsp; Manbhawan, Kumaripati, Lalitpur</h5>
                         </div>
                         <div class="faq-content">
                             <h6 class="subtitle">Walk in to our office for free study abroad counselling, application submissions, visa assistance, pre-departure sessions and much more.</h6>

@@ -19,6 +19,7 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    
     .institutes-area-wrapper .ml-minus-70 {
         margin-left: 0;
     }
@@ -278,6 +279,11 @@
         font-size: 35px;
         line-height: 50px;
     }
+    .navbar-area.navigation-style-02 {
+        
+        padding: 10px 0px 15px;
+      
+    }
     .single-team-item.style-02 .content .email {
         flex-wrap: wrap;
     }
@@ -503,7 +509,7 @@
         display: none;
     }
     .banner-area.home-01 {
-        padding: 150px 0px 80px;
+        padding: 80px 0px 80px;
     }
     .features-section .shape {
         display: none;
@@ -670,6 +676,7 @@
     .apply-form-inner .form-submit {
         text-align: left;
     }
+    
 }
 
 /* medium tablet layout 575px */
@@ -679,6 +686,7 @@
         font-size: 30px;
         line-height: 40px;
     }
+   
     .pagination .pagination-list li .page-number {
         width: 40px;
         height: 40px;

@@ -117,6 +117,10 @@
 		<!-- End Post -->
 
 	</div>
+    
+                    <div class="btn-wrap desktop-center margin-top-40 text-center">
+                                        <a href="contactus.php" class="btn-common flat-btn btn-active">apply now</a>
+                                    </div> <br>
 </div>
 <!-- End Article
 ================================================== -->

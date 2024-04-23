@@ -43,12 +43,12 @@
                     </div>
                     <div class="collapse navbar-collapse" id="themeim_main_menu">
                         <ul class="navbar-nav">
-                            <li class="menu-item-has-children">
+                            <li>
                                 <a href="index.php">Home</a>
                                 
                             </li>
 
-                            <li><a href="#aboutus">About Us</a></li>
+                            <li><a href="index.php#aboutus">About Us</a></li>
 
                             <li class="menu-item-has-children">
                                 <a href="#">Study Abroad</a>
@@ -59,7 +59,7 @@
                                 </ul>
                             </li>
 
-                            <li class="menu-item-has-children">
+                            <li>
                                 <a href="blog.php">Blog</a>
                                 
                             </li>
@@ -74,7 +74,7 @@
                             </ul>
                         </div>
                         <div class="btn-wrap">
-                            <a href="#inquiry" class="btn-common nav-btn">Inquire Now</a>
+                            <a href="index.php#inquiry" class="btn-common nav-btn">Inquire Now</a>
                         </div>
                     </div>
                 </div>

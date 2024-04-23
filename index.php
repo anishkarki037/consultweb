@@ -188,12 +188,12 @@
                         </div>
                         
                     </div>
-                    <div class="btn-wrap desktop-center margin-top-40 text-center">
-                        <a href="#inquiry" class="btn-common fill-btn style-01">Apply Now</a>
-                    </div>
+                    
                 </div>
             </div>
-        </section>
+  <div class="btn-wrap desktop-center margin-top-40 text-center">
+                        <a href="#inquiry" class="btn-common fill-btn style-01">Apply Now</a>
+                    </div>      </section>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Destinations Area End Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
