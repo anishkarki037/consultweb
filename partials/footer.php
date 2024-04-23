@@ -22,13 +22,11 @@
                                 <div class="footer-widget widget widget_nav_menu">
                                     <h4 class="widget-headline">Help Center</h4>
                                     <ul>
-                                        <li><a href="#">Courses</a></li>
-                                        <li><a href="#">How to apply for admission</a></li>
-                                        <li><a href="#">Admission Documents</a></li>
-                                        <li><a href="#">Frequently asked questions</a></li>
-                                        <li><a href="#">Student accommodation</a></li>
-                                        <li><a href="#">Student Jobs</a></li>
-                                    </ul>
+                                        
+                                        <li>+977-1-5444146</li>
+                                        <li>infoo@race.edu.np</li>
+                                        <li><a href="#FAQ">Frequently asked questions</a></li>
+                                        
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-6 col-sm-6">
@@ -38,7 +36,7 @@
                                         <li><a href="index.php#aboutus">About Us</a></li>
                                         <li><a href="contactus.php">Contact Us</a></li>
                                         <li><a href="blog.php">Blog</a></li>
-                                        <li><a href="currencyconcerter.php">Currency Converter</a></li>
+                                        <li><a href="currencyconverter.php">Currency Converter</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -73,7 +71,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="copyright-area-inner">
-                                <p>© 2022 "business name yaha". All rights reserved | Developed By <span>Company ko naam ni haldim.</span></p>
+                                <p>© 2024 "Race Educare". All rights reserved | Developed By <span>Anish.</span></p>
                                 <div class="footer-social-area">
                                     <ul class="social-icon-02">
                                         <li><a href="#0"><i class="fab fa-facebook-f"></i></a></li>
@@ -94,7 +92,7 @@
 
     <!-- back to top area start -->
     <div class="back-to-top">
-        <span class="back-top"><i class="fa fa-angle-up"></i></span>
+        <span class="back-top"><a href="#banner-area"><i class="fa fa-angle-up"></a></i></span>
     </div>
     <!-- back to top area end -->
 

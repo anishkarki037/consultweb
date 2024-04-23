@@ -58,8 +58,10 @@
     <!-- Responsive Css -->
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -172,17 +174,17 @@
                     </div>
                     <div class="destination-items-wrap">
                         
-                        <div class="destination-single-item">
+                        <div class="destination-single-item"><a href="studyinusa.php">
                             <div class="thumbnail">
                                 <img src="assets/img/sections/destination/usa.png" alt="">
                             </div>
-                            <h6 class="name">America</h6>
+                            <h6 class="name">America</h6></a>
                         </div>
-                        <div class="destination-single-item">
+                        <div class="destination-single-item"><a href="studyinireland">
                             <div class="thumbnail">
                                 <img src="assets/img/sections/destination/ireland.png" alt="">
                             </div>
-                            <h6 class="name">Ireland</h6>
+                            <h6 class="name"><a href="studyinireland">Ireland</h6></a>
                         </div>
                         
                     </div>
@@ -277,7 +279,7 @@
             Steps Section Area Start Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <section class="destination-section style-01 margin-top-110 instruction">
-            <div class="container custom-container-01">
+            <div class="container custom-container-01 steps">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <div class="theme-section-title desktop-center text-center">
@@ -287,31 +289,31 @@
                     </div>
                 </div>
                 <div class="destination-items-wrap">
-                    <div class="destination-single-item style-02">
-                        <div class="thumbnail">
+                    <div class="destination-single-item style-02 "data-aos="zoom-in-up">
+                        <div class="thumbnail ">
                             <img src="assets/img/icon/step-01.png" alt="">
                         </div>
                         <h6 class="name">Identify course <br> country & collage</h6>
                     </div>
-                    <div class="destination-single-item style-02">
+                    <div class="destination-single-item style-02"data-aos="zoom-in-up">
                         <div class="thumbnail">
                             <img src="assets/img/icon/step-02.png" alt="">
                         </div>
                         <h6 class="name">science <br> & professional</h6>
                     </div>
-                    <div class="destination-single-item style-02">
+                    <div class="destination-single-item style-02"data-aos="zoom-in-up">
                         <div class="thumbnail">
                             <img src="assets/img/icon/step-03.png" alt="">
                         </div>
                         <h6 class="name">Art, Design & <br> Culture</h6>
                     </div>
-                    <div class="destination-single-item style-02">
+                    <div class="destination-single-item style-02"data-aos="zoom-in-up">
                         <div class="thumbnail">
                             <img src="assets/img/icon/step-04.png" alt="">
                         </div>
                         <h6 class="name">Business & <br> Management</h6>
                     </div>
-                    <div class="destination-single-item style-02">
+                    <div class="destination-single-item style-02"data-aos="zoom-in-up">
                         <div class="thumbnail">
                             <img src="assets/img/icon/step-05.png" alt="">
                         </div>
@@ -401,7 +403,7 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Faq Section Area Start Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <section class="faq-section-area margin-top-90">
+        <section class="faq-section-area margin-top-90" id="FAQ">
             <div class="container custom-container-01">
                 <div class="row">
                     <div class="col-lg-6">
@@ -428,7 +430,7 @@
                                             </a>
                                         </h5>
                                     </div>
-                                    <div id="collapseOne" class="collapse" data-bs-parent="#accordionOne">
+                                    <div id="collapseOne" class="collapse show" data-bs-parent="#accordionOne">
                                         <div class="card-body">
                                             There are few basics steps Research, Apply Online, Prepare Documents and Wait for Acceptance.
                                         </div>
@@ -456,7 +458,7 @@
                                             </a>
                                         </h5>
                                     </div>
-                                    <div id="collapseThree" class="collapse show" data-bs-parent="#accordionOne">
+                                    <div id="collapseThree" class="collapse" data-bs-parent="#accordionOne">
                                         <div class="card-body">
                                         Gain a high-quality education, experience new cultures, and expand future job prospects.
                                         </div>
@@ -514,5 +516,8 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Faq Section Area End Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
         <?php include('partials/footer.php') ?>

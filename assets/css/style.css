@@ -1425,8 +1425,11 @@ ul {
     cursor: pointer;
     -webkit-box-shadow: 0 0 5px rgba(118, 74, 241, 0.5);
     box-shadow: 0 0 5px rgba(118, 74, 241, 0.5);
-    display: none;
+    display: none; 
+    transition: 0.2 ease-out;
+    animation-delay: 0ms;
 }
+
 
 /*Wp  BlockQuote */
 
