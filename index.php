@@ -119,7 +119,7 @@
                                 <img src="assets/img/icon/colleges.png" alt=""width="67px">
                             </div>
                             <div class="content">
-                                <h4 class="title">College & University Admission</h4>
+                                <h4 class="title">Colleges & University Admission</h4>
                                 <p>Embark on Your Academic Journey: Simplify the College and University Admission Process with Expert Guidance and Support!</p>
                             </div>
                             
@@ -184,16 +184,16 @@
                             <div class="thumbnail">
                                 <img src="assets/img/sections/destination/ireland.png" alt="">
                             </div>
-                            <h6 class="name"><a href="studyinireland">Ireland</h6></a>
+                            <h6 class="name"><a href="studyinireland.php">Ireland</h6></a>
                         </div>
                         
                     </div>
-                    
+                    <div class="btn-wrap desktop-center margin-top-40 text-center">
+                        <a href="#inquiry" class="btn-common fill-btn style-01">Apply Now</a>
+                    </div>
                 </div>
             </div>
-  <div class="btn-wrap desktop-center margin-top-40 text-center">
-                        <a href="#inquiry" class="btn-common fill-btn style-01">Apply Now</a>
-                    </div>      </section>
+        </section>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Destinations Area End Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -201,7 +201,7 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             About Section Area Start Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <section class="about-section-area section-top-space about-home-02" id="aboutus">
+        <section class="about-section-area about-home-02" id="aboutus">
             <div class="container custom-container-01">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -278,7 +278,7 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Steps Section Area Start Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <section class="destination-section style-01 margin-top-110 instruction">
+        <section class="destination-section style-01 instruction">
             <div class="container custom-container-01 steps">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
@@ -293,7 +293,7 @@
                         <div class="thumbnail ">
                             <img src="assets/img/icon/step-01.png" alt="">
                         </div>
-                        <h6 class="name">Identify course <br> country & collage</h6>
+                        <h6 class="name">Identify course <br> country & college</h6>
                     </div>
                     <div class="destination-single-item style-02"data-aos="zoom-in-up">
                         <div class="thumbnail">
@@ -327,7 +327,7 @@
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
         <!-- inquirey section -->
-        <section class="faq-section-area margin-top-90" id="inquiry">
+        <section class="faq-section-area" id="inquiry">
             <div class="container custom-container-01">
                 <div class="row">
                     <div class="col-lg-6">
@@ -349,21 +349,22 @@
                                         <div class="form-row">
                                     
                                             <div class="form-group card">
-                                                <input type="text" placeholder="Full Name"class="form-control form-control-lg" id="colFormLabelLg"name="name" required> 
+                                                <input type="text" placeholder="Full Name"class="form-control form-control-lg" id="colFormLabelLg name"name="name" required> 
                                             </div>
                                             
                                             <div class="form-group card">
-                                                <input type="text" placeholder="Mobile Number"class="form-control form-control-lg" id="colFormLabelLg"name="phone" required> 
-                                            </div>
+                                                <input type="tel" placeholder="Mobile Number"class="form-control form-control-lg" id="phone"name="phone"maxlength="10"pattern="[0-9]{10}" required> 
+                                            </div><p class="error"id="invalid_phone"> </p>
                                             <div class="form-group card">
-                                                <input type="text" placeholder="Email Address"class="form-control form-control-lg" id="colFormLabelLg"name="email" required> 
-                                            </div><br>
+                                                <input type="text" placeholder="Email Address"class="form-control form-control-lg" id="email" name="email" required> 
+                                                
+                                            </div><p class="error"id="invalid_email"> </p><br>
                                             <h5 class="mb-0">
                                                 Education Level
                                         </h5>
                                             <div class="form-group card">
                                             <select name="education_level" id="edulev"class="custom-select" id="colFormLabelLg" required >
-                                                <option selected>Education Level</option>
+                                                
                                                 <option value="+2">+2</option>
                                                 <option value="bachelors">Bachelor</option>
                                                 <option value="master">Master</option>
@@ -372,21 +373,20 @@
                                             </div>
                                             
                                             <div class="form-group card">
-                                                <input type="text" placeholder="Age"class="form-control form-control-lg" id="colFormLabelLg"name="age" required> 
+                                                <input type="number" placeholder="Age"class="form-control form-control-lg" id="colFormLabelLg"oninput="javascript: if (this.value.length > 2) this.value = this.value.slice(0, 2);"name="age" required> 
                                             </div><br>
                                             <h5 class="mb-0">
                                                 Preferred Destination
                                                 </h5>
                                             <div class="form-group card">
                                                 
-                                                <select name="preferred_destination" id="predes"class="custom-select" id="inputGroupSelect02" required>
-                                                    <option selected>Preferred Destination</option>
+                                                <select name="preferred_destination" id="predes"class="custom-select" id="inputGroupSelect02"  required>
                                                     <option value="USA">Study in USA</option>
                                                     <option value="Ireland">Study in Ireland</option>                                                         
                                                             
                                                 </select>
                                             </div>
-                                            <input type="submit" name="submit"class="btn btn-primary">
+                                            <input type="submit"id="submit"name="submit"class="btn btn-primary"disabled>
                                         </div>
                                         
                                     </form>
@@ -403,7 +403,7 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             Faq Section Area Start Here
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <section class="faq-section-area margin-top-90" id="FAQ">
+        <section class="faq-section-area" id="FAQ">
             <div class="container custom-container-01">
                 <div class="row">
                     <div class="col-lg-6">
@@ -520,4 +520,6 @@
 <script>
   AOS.init();
 </script>
+
+
         <?php include('partials/footer.php') ?>

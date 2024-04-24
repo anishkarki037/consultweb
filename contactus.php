@@ -72,7 +72,7 @@
                         <div class="theme-section-title">
                             <span class="subtitle">Contact US</span>
                             <h5 class="title"> <i class="fa fa-phone" style="font-size:34px" style="color:--main-color-one;"></i>  &nbsp; +977-1-5444146</h5>
-                            <h5 class=""> <i class="fa fa-envelope" style="font-size:24px"></i>  &nbsp; infoo@race.edu.np</h5>
+                            <h5 class=""> <i class="fa fa-envelope" style="font-size:24px"></i>  &nbsp; info@race.edu.np</h5>
                             <h5 class=""> <i class="fa fa-map-marker" style="font-size:24px"></i>  &nbsp; Manbhawan, Kumaripati, Lalitpur</h5>
                         </div>
                         <div class="faq-content">
@@ -85,25 +85,26 @@
                             <div id="accordionOne">
             
                                
-                                    <form action="" method="post">
+                            <form action="" method="post">
                                         <div class="form-row">
                                     
                                             <div class="form-group card">
-                                                <input type="text" placeholder="Full Name"class="form-control form-control-lg" id="colFormLabelLg"name="name" required> 
+                                                <input type="text" placeholder="Full Name"class="form-control form-control-lg" id="colFormLabelLg name"name="name" required> 
                                             </div>
                                             
                                             <div class="form-group card">
-                                                <input type="text" placeholder="Mobile Number"class="form-control form-control-lg" id="colFormLabelLg"name="phone" required> 
-                                            </div>
+                                                <input type="tel" placeholder="Mobile Number"class="form-control form-control-lg" id="phone"name="phone"maxlength="10"pattern="[0-9]{10}" required> 
+                                            </div><p class="error"id="invalid_phone"> </p>
                                             <div class="form-group card">
-                                                <input type="email" placeholder="Email Address"class="form-control form-control-lg" id="colFormLabelLg"name="email" required> 
-                                            </div><br>
+                                                <input type="text" placeholder="Email Address"class="form-control form-control-lg" id="email" name="email" required> 
+                                                
+                                            </div><p class="error"id="invalid_email"> </p><br>
                                             <h5 class="mb-0">
                                                 Education Level
                                         </h5>
                                             <div class="form-group card">
                                             <select name="education_level" id="edulev"class="custom-select" id="colFormLabelLg" required >
-                                                <option selected>Education Level</option>
+                                                
                                                 <option value="+2">+2</option>
                                                 <option value="bachelors">Bachelor</option>
                                                 <option value="master">Master</option>
@@ -112,21 +113,20 @@
                                             </div>
                                             
                                             <div class="form-group card">
-                                                <input type="text" placeholder="Age"class="form-control form-control-lg" id="colFormLabelLg"name="age" required> 
+                                                <input type="number" placeholder="Age"class="form-control form-control-lg" id="colFormLabelLg"oninput="javascript: if (this.value.length > 2) this.value = this.value.slice(0, 2);"name="age" required> 
                                             </div><br>
                                             <h5 class="mb-0">
                                                 Preferred Destination
                                                 </h5>
                                             <div class="form-group card">
                                                 
-                                                <select name="preferred_destination" id="predes"class="custom-select" id="inputGroupSelect02" required>
-                                                    <option selected>Preferred Destination</option>
+                                                <select name="preferred_destination" id="predes"class="custom-select" id="inputGroupSelect02"  required>
                                                     <option value="USA">Study in USA</option>
                                                     <option value="Ireland">Study in Ireland</option>                                                         
                                                             
                                                 </select>
                                             </div>
-                                            <input type="submit" name="submit"class="btn btn-primary">
+                                            <input type="submit"id="submit"name="submit"class="btn btn-primary"disabled>
                                         </div>
                                         
                                     </form>

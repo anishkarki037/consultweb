@@ -24,8 +24,8 @@
                                     <ul>
                                         
                                         <li><a href="#FAQ">Frequently asked questions</a></li>
-                                        <li>+977-1-5444146</li>
-                                        <li>infoo@race.edu.np</li>
+                                        <li><a href="tel:+97715444146">+977-1-5444146</a></li>
+                                        <li><a href="mailto:info@race.edu.np">info@race.edu.np</a></li>
                                         
                                 </div>
                             </div>
@@ -117,6 +117,87 @@
     <script src="assets/js/slick.min.js"></script>
     <!-- main js -->
     <script src="assets/js/main.js"></script>
+    <script>
+    
+        $(document).ready(function () {
+          
+            
+            $('#phone').blur(function (e) {
+                
+                e.preventDefault();
+
+                const phone = $('#phone').val();
+ 
+                if (phone === '') {
+                    $('#invalid_phone').text("Input Fields can not be Empty!!");
+                    $('#invalid_phone').css("color", "red");
+                    $('#submit').attr("disabled",true);
+                    return false;
+                }
+                else if (IsPhone(phone) === false) {
+                    $('#invalid_phone').text("Entered phone is not Valid!!");
+                    $('#invalid_phone').css("color", "red");
+                    $('#submit').attr("disabled",true);
+                    return false;
+                }
+                else{
+                    $('#invalid_phone').text("");
+                    $('#invalid_phone').css("color", "green");
+                    $('#submit').attr("disabled",false);
+                    return true;
+                }
+                return false;
+ 
+            });
+            $('#email').blur(function (e) {
+                e.preventDefault();
+
+                const email = $('#email').val();
+ 
+                if (email === '') {
+                    $('#invalid_email').text("Input Fields can not be Empty!!");
+                    $('#invalid_email').css("color", "red");
+                    $('#submit').attr("disabled",true);
+                    return false;
+                }
+                else if (IsEmail(email) === false) {
+                    $('#invalid_email').text("Entered Email is not Valid!!");
+                    $('#invalid_email').css("color", "red");
+                    $('#submit').attr("disabled",true);
+                    return false;
+                }
+                else{
+                    $('#invalid_email').text("");
+                    $('#invalid_email').css("color", "green");
+                    $('#submit').attr("disabled",false);
+                    return true;
+                }
+                return false;
+            });
+        });
+ 
+
+        function IsPhone(phone) {
+            const regex =
+            /^(97|98)\d{8}$/;
+            if (!regex.test(phone)) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function IsEmail(email) {
+            const regex =
+/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regex.test(email)) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
 </body>
 
 </html>
