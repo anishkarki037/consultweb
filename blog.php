@@ -21,6 +21,25 @@
 <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="blog/css/mediumish.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/animate.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Nice Select -->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!-- Odomiters css -->
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="assets/css/slick.css">
+	<style>
+	a{
+		text-decoration: none;
+	}
+	
+</style>
 </head>
 <body style="padding-top: 0;">
 

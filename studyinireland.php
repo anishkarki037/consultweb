@@ -6,7 +6,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="assets/img/raceeducare.png">
-<title>Study in usa</title>
+<title>Study in Ireland</title>
 <!-- Bootstrap core CSS -->
 <link href="blog/css/bootstrap.min.css" rel="stylesheet">
 <!-- Fonts -->
@@ -16,6 +16,19 @@
 <link href="blog/css/mediumish.css" rel="stylesheet">
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/animate.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Nice Select -->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!-- Odomiters css -->
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="assets/css/slick.css">
 <style>
 	a{
 		text-decoration: none;

@@ -10016,6 +10016,10 @@ label[for=wp-comment-cookies-consent] {
     border: 2px solid var(--main-color-one);
     color: #fff;
 }
+.article-post{
+    text-align: justify;
+      text-justify: inter-word;
+}
 #inquiry{
     background: #F2F2F2;
 }

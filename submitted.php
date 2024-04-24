@@ -21,6 +21,8 @@
 <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="blog/css/mediumish.css" rel="stylesheet">
+<!-- fontawesome -->
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 </head>
 <body style="padding-top: 0;">
 

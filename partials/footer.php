@@ -12,8 +12,8 @@
                                 <div class="footer-widget widget widget_nav_menu">
                                     <h4 class="widget-headline">Destination</h4>
                                     <ul>
-                                        <li><a href="#">Study In USA</a></li>
-                                        <li><a href="#">Study In Ireland</a></li>
+                                        <li><a href="studyinusa.php">Study In USA</a></li>
+                                        <li><a href="studyinireland.php">Study In Ireland</a></li>
                                         
                                     </ul>
                                 </div>
